@@ -2,6 +2,7 @@ package opensea
 
 import (
 	"context"
+
 	"github.com/pinealctx/opensea-go/model"
 	"github.com/pinealctx/restgo"
 )
@@ -30,5 +31,6 @@ type ListingsRequest struct {
 }
 
 type ListingsResponse struct {
-	Listings []*model.Order `opensea:"listings"`
+	Listings        []*model.Order        `opensea:"listings"`
+	SeaPortListings []*model.SeaportOrder `opensea:"seaport_listings"`
 }

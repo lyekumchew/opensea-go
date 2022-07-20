@@ -30,9 +30,10 @@ type Asset struct {
 	Decimals      int         `opensea:"decimals" json:"decimals"`
 	TokenMetadata string      `opensea:"token_metadata" json:"tokenMetadata"`
 	// Dictionary of data on the owner (see account section)
-	Owner      *Account     `opensea:"owner" json:"owner"`
-	SellOrders []*SellOrder `opensea:"sell_orders,omitempty" json:"sellOrders,omitempty"`
-	Creator    *Account     `opensea:"creator" json:"creator"`
+	Owner             *Account        `opensea:"owner" json:"owner"`
+	SellOrders        []*SellOrder    `opensea:"sell_orders,omitempty" json:"sellOrders,omitempty"`
+	SeaportSellOrders []*SeaportOrder `opensea:"seaport_sell_orders,omitempty" json:"seaportSellOrders,omitempty"`
+	Creator           *Account        `opensea:"creator" json:"creator"`
 	// A list of traits associated with the item (see traits section)
 	Traits []*Trait `opensea:"traits" json:"traits"`
 	// When this item was last sold (null if there was no last sale)
