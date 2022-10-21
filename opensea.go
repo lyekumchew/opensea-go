@@ -2,9 +2,10 @@ package opensea
 
 import (
 	"context"
-	"github.com/pinealctx/restgo"
 	"net/http"
 	"time"
+
+	"github.com/pinealctx/restgo"
 )
 
 const (
@@ -30,6 +31,10 @@ func New(fnList ...OptionFn) *Client {
 		Client: restgo.New(restgo.WithBaseURL(o.baseURL), restgo.WithGlobalHeader(header)),
 		option: o,
 	}
+}
+
+func (c *Client) GetApiKey() string {
+	return c.apiKey
 }
 
 func (c *Client) get(ctx context.Context, resource string, params ...restgo.IParam) (restgo.IResponse, error) {
