@@ -64,6 +64,8 @@ type Collection struct {
 	DiscordURL  string  `opensea:"discord_url" json:"discordURL"`
 	ChatURL     *string `opensea:"chat_url" json:"chatURL"`
 	WikiURL     *string `opensea:"wiki_url" json:"wikiURL"`
+
+	Fees map[string]interface{} `opensea:"fees" json:"fees"`
 }
 
 func (c *Collection) CollectionSlug() string {
