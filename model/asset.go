@@ -37,19 +37,20 @@ type Asset struct {
 	// A list of traits associated with the item (see traits section)
 	Traits []*Trait `opensea:"traits" json:"traits"`
 	// When this item was last sold (null if there was no last sale)
-	LastSale                *LastSale       `opensea:"last_sale" json:"lastSale"`
-	TopBid                  interface{}     `opensea:"top_bid" json:"topBid"`
-	ListingDate             *string         `opensea:"listing_date" json:"listingDate"`
-	IsPresale               bool            `opensea:"is_presale" json:"isPresale"`
-	TransferFeePaymentToken *PaymentToken   `opensea:"transfer_fee_payment_token" json:"transferFeePaymentToken"`
-	TransferFee             *string         `opensea:"transfer_fee" json:"transferFee"`
-	RelatedAssets           []*Asset        `opensea:"related_assets" json:"relatedAssets"`
-	Orders                  []*Order        `opensea:"orders" json:"orders"`
-	Auctions                []interface{}   `opensea:"auctions" json:"auctions"`
-	SupportsWyvern          bool            `opensea:"supports_wyvern" json:"supportsWyvern"`
-	TopOwnerships           []*TopOwnership `opensea:"top_ownerships" json:"topOwnerships"`
-	Ownership               interface{}     `opensea:"ownership" json:"ownership"`
-	HighestBuyerCommitment  interface{}     `opensea:"highest_buyer_commitment" json:"highestBuyerCommitment"`
+	LastSale                *LastSale              `opensea:"last_sale" json:"lastSale"`
+	TopBid                  interface{}            `opensea:"top_bid" json:"topBid"`
+	ListingDate             *string                `opensea:"listing_date" json:"listingDate"`
+	IsPresale               bool                   `opensea:"is_presale" json:"isPresale"`
+	TransferFeePaymentToken *PaymentToken          `opensea:"transfer_fee_payment_token" json:"transferFeePaymentToken"`
+	TransferFee             *string                `opensea:"transfer_fee" json:"transferFee"`
+	RelatedAssets           []*Asset               `opensea:"related_assets" json:"relatedAssets"`
+	Orders                  []*Order               `opensea:"orders" json:"orders"`
+	Auctions                []interface{}          `opensea:"auctions" json:"auctions"`
+	SupportsWyvern          bool                   `opensea:"supports_wyvern" json:"supportsWyvern"`
+	TopOwnerships           []*TopOwnership        `opensea:"top_ownerships" json:"topOwnerships"`
+	Ownership               interface{}            `opensea:"ownership" json:"ownership"`
+	HighestBuyerCommitment  interface{}            `opensea:"highest_buyer_commitment" json:"highestBuyerCommitment"`
+	Fees                    map[string]interface{} `opensea:"fees" json:"fees"`
 }
 
 type Transaction struct {
