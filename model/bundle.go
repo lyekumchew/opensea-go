@@ -33,7 +33,7 @@ type SellOrder struct {
 
 type AccountID struct {
 	Account
-	User int32 `opensea:"user" json:"user"`
+	// User int32 `opensea:"user" json:"user"`
 }
 
 type SellOrderMetadata struct {
