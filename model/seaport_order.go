@@ -54,22 +54,23 @@ type Consideration struct {
 }
 
 type SeaportOrder struct {
-	CreatedDate     string           `opensea:"created_date" json:"createdDate"`
-	ClosingDate     string           `opensea:"closing_date" json:"closingDate"`
-	ListingTime     int              `opensea:"listing_time" json:"listingTime"`
-	ExpirationTime  int              `opensea:"expiration_time" json:"expirationTime"`
-	OrderHash       string           `opensea:"order_hash" json:"orderHash"`
-	ProtocolData    *ProtocolData    `opensea:"protocol_data" json:"protocolData"`
-	ProtocolAddress string           `opensea:"protocol_address" json:"protocolAddress"`
-	Maker           *AccountV2       `opensea:"maker" json:"maker"`
-	Taker           *AccountV2       `opensea:"taker" json:"taker"`
-	CurrentPrice    *decimal.Decimal `opensea:"current_price" json:"currentPrice"`
-	MakerFees       []*Fee           `opensea:"maker_fees" json:"makerFees"`
-	TakerFees       []*Fee           `opensea:"taker_fees" json:"takerFees"`
-	Side            string           `opensea:"side" json:"side"`
-	OrderType       string           `opensea:"order_type" json:"orderType"`
-	Canceled        bool             `opensea:"canceled" json:"canceled"`
-	Finalized       bool             `opensea:"finalized" json:"finalized"`
-	MarkedInvalid   bool             `opensea:"marked_invalid" json:"markedInvalid"`
-	ClientSignature string           `opensea:"client_signature" json:"clientSignature"`
+	CreatedDate       string           `opensea:"created_date" json:"createdDate"`
+	ClosingDate       string           `opensea:"closing_date" json:"closingDate"`
+	ListingTime       int              `opensea:"listing_time" json:"listingTime"`
+	ExpirationTime    int              `opensea:"expiration_time" json:"expirationTime"`
+	OrderHash         string           `opensea:"order_hash" json:"orderHash"`
+	ProtocolData      *ProtocolData    `opensea:"protocol_data" json:"protocolData"`
+	ProtocolAddress   string           `opensea:"protocol_address" json:"protocolAddress"`
+	Maker             *AccountV2       `opensea:"maker" json:"maker"`
+	Taker             *AccountV2       `opensea:"taker" json:"taker"`
+	CurrentPrice      *decimal.Decimal `opensea:"current_price" json:"currentPrice"`
+	MakerFees         []*Fee           `opensea:"maker_fees" json:"makerFees"`
+	TakerFees         []*Fee           `opensea:"taker_fees" json:"takerFees"`
+	Side              string           `opensea:"side" json:"side"`
+	OrderType         string           `opensea:"order_type" json:"orderType"`
+	Canceled          bool             `opensea:"canceled" json:"canceled"`
+	Finalized         bool             `opensea:"finalized" json:"finalized"`
+	MarkedInvalid     bool             `opensea:"marked_invalid" json:"markedInvalid"`
+	ClientSignature   string           `opensea:"client_signature" json:"clientSignature"`
+	RemainingQuantity int              `opensea:"remaining_quantity" json:"remainingQuantity"`
 }
