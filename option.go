@@ -48,6 +48,12 @@ func WithRetryWhenFreqLimit(interval time.Duration, count int) OptionFn {
 	}
 }
 
+func WithBaseURL(baseURL string) OptionFn {
+	return func(o *option) {
+		o.baseURL = baseURL
+	}
+}
+
 type ctxKey int
 
 const (
