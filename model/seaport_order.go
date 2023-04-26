@@ -33,7 +33,7 @@ type Parameters struct {
 	Salt                            string           `json:"salt"`
 	ConduitKey                      string           `json:"conduitKey"`
 	TotalOriginalConsiderationItems int              `json:"totalOriginalConsiderationItems"`
-	Counter                         int              `json:"counter"`
+	Counter                         interface{}      `json:"counter"`
 }
 
 type Offer struct {
