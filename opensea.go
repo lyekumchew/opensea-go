@@ -28,7 +28,7 @@ func New(fnList ...OptionFn) *Client {
 	}
 	header.Set("Accept", "application/json")
 	return &Client{
-		Client: restgo.New(restgo.WithBaseURL(o.baseURL), restgo.WithGlobalHeader(header)),
+		Client: restgo.New(restgo.WithBaseURL(o.baseURL), restgo.WithGlobalHeader(header), restgo.WithTransport(http.DefaultTransport)),
 		option: o,
 	}
 }
