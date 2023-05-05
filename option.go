@@ -19,6 +19,7 @@ type option struct {
 	retryWhenFreqLimit bool
 	retryInterval      time.Duration
 	retryCount         int
+	host               string
 }
 
 type OptionFn func(*option)
@@ -51,6 +52,12 @@ func WithRetryWhenFreqLimit(interval time.Duration, count int) OptionFn {
 func WithBaseURL(baseURL string) OptionFn {
 	return func(o *option) {
 		o.baseURL = baseURL
+	}
+}
+
+func WithHost(host string) OptionFn {
+	return func(o *option) {
+		o.host = host
 	}
 }
 

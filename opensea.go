@@ -2,7 +2,9 @@ package opensea
 
 import (
 	"context"
+	"net"
 	"net/http"
+	"net/url"
 	"time"
 
 	"github.com/pinealctx/restgo"
@@ -27,8 +29,41 @@ func New(fnList ...OptionFn) *Client {
 		header.Set(APIKey, o.apiKey)
 	}
 	header.Set("Accept", "application/json")
+
+	dialer := &net.Dialer{
+		Timeout:   30 * time.Second,
+		KeepAlive: 30 * time.Second,
+	}
+	transport := &http.Transport{
+		Proxy: http.ProxyFromEnvironment,
+		DialContext: func(ctx context.Context, network, addr string) (net.Conn, error) {
+			return dialer.DialContext(ctx, network, addr)
+		},
+		ForceAttemptHTTP2:     true,
+		MaxIdleConns:          100,
+		IdleConnTimeout:       90 * time.Second,
+		TLSHandshakeTimeout:   10 * time.Second,
+		ExpectContinueTimeout: 1 * time.Second,
+	}
+	if o.host != "" {
+		u, err := url.Parse(o.baseURL)
+		if err != nil {
+			panic(err)
+		}
+		hostname := u.Hostname() + ":443"
+		host := o.host + ":443"
+		transport.DialContext = func(ctx context.Context, network, addr string) (net.Conn, error) {
+			if addr == hostname {
+				addr = host
+			}
+			return dialer.DialContext(ctx, network, addr)
+		}
+		transport.DisableKeepAlives = true
+		transport.MaxIdleConnsPerHost = -1
+	}
+
 	return &Client{
-		Client: restgo.New(restgo.WithBaseURL(o.baseURL), restgo.WithGlobalHeader(header), restgo.WithTransport(http.DefaultTransport)),
+		Client: restgo.New(restgo.WithBaseURL(o.baseURL), restgo.WithGlobalHeader(header), restgo.WithTransport(transport)),
 		option: o,
 	}
 }
