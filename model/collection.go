@@ -65,7 +65,8 @@ type Collection struct {
 	ChatURL     *string `opensea:"chat_url" json:"chatURL"`
 	WikiURL     *string `opensea:"wiki_url" json:"wikiURL"`
 
-	Fees map[string]interface{} `opensea:"fees" json:"fees"`
+	Fees                  map[string]interface{} `opensea:"fees" json:"fees"`
+	IsCreatorFeesEnforced bool                   `opensea:"is_creator_fees_enforced" json:"isCreatorFeesEnforced"`
 }
 
 func (c *Collection) CollectionSlug() string {
